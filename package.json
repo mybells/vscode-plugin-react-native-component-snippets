@@ -1,0 +1,47 @@
+{
+  "name": "vscode-plugin-react-native-component-snippets",
+  "displayName": "React Native Component Snippets",
+  "description": "react-native内置组件标签自动补全vscode插件",
+  "publisher": "mybells",
+  "keywords": [
+    "react-native",
+    "snippets"
+  ],
+  "icon": "images/logo.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "galleryBanner": {
+    "color": "#EFF1F3",
+    "theme": "light"
+  },
+  "main": "./out/extension",
+  "activationEvents": [
+    "onLanguage:vuejs"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "jsx",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/mybells/vscode-plugin-react-native-component-snippets/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mybells/vscode-plugin-react-native-component-snippets"
+  },
+  "homepage": "https://github.com/mybells/vscode-plugin-react-native-component-snippets/blob/master/README.md"
+}

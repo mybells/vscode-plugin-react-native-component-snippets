@@ -1,0 +1,37 @@
+{
+  "ActivityIndicator": {
+    "prefix": "$ActivityIndicator",
+    "body": ["<ActivityIndicator size=\"${1:large}\" color=\"${2:#000}\" />"],
+    "description": "显示一个圆形的 loading 提示符号"
+  },
+  "Button": {
+    "prefix": "$Button",
+    "body": ["<Button onPress={$1} title=\"${2}\" />"],
+    "description": "一个简单的跨平台的按钮组件"
+  },
+  "DatePickerIOS": {
+    "prefix": "$DatePickerIOS",
+    "body": ["<DatePickerIOS date={${1}} onDateChange={${2}} />"],
+    "description": "使用DatePickerIOS来在 iOS 平台上渲染一个日期/时间选择器"
+  },
+  "Text": {
+    "prefix": "$Text",
+    "body": ["<Text>$1</Text>"],
+    "description": "一个用于显示文本的React组件"
+  },
+  "View": {
+    "prefix": "$View",
+    "body": ["<View>$1</View>"],
+    "description": "View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器"
+  },
+  "TouchableOpacity": {
+    "prefix": "$TouchableOpacity",
+    "body": ["<TouchableOpacity onPress={$2}>$1</TouchableOpacity>"],
+    "description": "本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。"
+  },
+  "Style": {
+    "prefix": "$Style",
+    "body": ["style={${1}}"],
+    "description": "样式变量"
+  }
+}
