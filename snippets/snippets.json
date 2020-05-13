@@ -21,7 +21,7 @@
   },
   "FlatList": {
     "prefix": "$FlatList",
-    "body": ["<FlatList data={${1}} renderItem={({item}) => {${2}}} />"],
+    "body": ["<FlatList data={${1}} renderItem={({item,index}) => {${2}}} keyExtractor={(item, index) => index} />"],
     "description": "高性能的简单列表组件。"
   },
   "Image": {
@@ -56,16 +56,83 @@
               "</Picker>"],
     "description": "本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。"
   },
-
-
-
-
-
+  "ProgressBarAndroid": {
+    "prefix": "$ProgressBarAndroid",
+    "body": ["<ProgressBarAndroid progress={${1}}/>"],
+    "description": "封装了Android平台上的ProgressBar的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。"
+  },
+  "ProgressViewIOS": {
+    "prefix": "$ProgressViewIOS",
+    "body": ["<ProgressViewIOS progress={${1}}/>"],
+    "description": "使用ProgressViewIOS来在iOS上渲染一个UIProgressView。"
+  },
+  "RefreshControl": {
+    "prefix": "$RefreshControl",
+    "body": ["<RefreshControl refreshing={${1}} onRefresh={${2}} />"],
+    "description": "这一组件可以用在ScrollView或FlatList内部，为其添加下拉刷新的功能。"
+  },
+  "SafeAreaView": {
+    "prefix": "$SafeAreaView",
+    "body": ["<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>",
+              "\t${1}",
+              "</SafeAreaView>"],
+    "description": "SafeAreaView的目的是在一个“安全”的可视区域内渲染内容。本组件目前仅支持 iOS 设备以及 iOS 11 或更高版本。"
+  },
+  "ScrollView": {
+    "prefix": "$ScrollView",
+    "body": ["<ScrollView contentContainerStyle={{flex:1}}>",
+              "\t${1}",
+              "</ScrollView>"],
+    "description": "一个封装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。"
+  },
+  "SectionList": {
+    "prefix": "$SectionList",
+    "body": ["<SectionList sections={${3}} renderItem={({ item, index, section }) => {${1}}} renderSectionHeader={${2}} keyExtractor={(item, index) => index} />"],
+    "description": "高性能的分组(section)列表组件"
+  },
+  "SegmentedControlIOS": {
+    "prefix": "$SegmentedControlIOS",
+    "body": ["<SegmentedControlIOS values={${1}} selectedIndex={${2}} onChange={(event) => {}} />"],
+    "description": "使用SegmentedControlIOS来在 iOS 设备上渲染一个UISegmentedControl组件。这是一个分段显示多个选项的组件。"
+  },
+  "Slider": {
+    "prefix": "$Slider",
+    "body": ["<Slider values={${1}} maximumValue={${2}} minimumValue={${3}} onValueChange={() => {}} step={${4}} />"],
+    "description": "用于选择一个范围值的组件。"
+  },
+  "StatusBar": {
+    "prefix": "$StatusBar",
+    "body": ["<StatusBar barStyle=\"${1|light-content,dark-content|}\" />"],
+    "description": "控制应用状态栏的组件。"
+  },
+  "StyleSheet": {
+    "prefix": "$StyleSheet",
+    "body": ["const styles = StyleSheet.create({",
+             "\tcontainer: {",
+             "\t\tborderWidth: StyleSheet.hairlineWidth",
+             "\t},",
+             "\t${1}",
+             "});"],
+    "description": "StyleSheet提供了一种类似CSS样式表的抽象。"
+  },
+  "Switch": {
+    "prefix": "$Switch",
+    "body": ["<Switch value={${1}} onValueChange={(val)=>{${2}}} />"],
+    "description": "跨平台通用的“开关”组件。"
+  },
   "Text": {
     "prefix": "$Text",
-    "body": ["<Text>$1</Text>"],
+    "body": ["<Text style={{${2}}} numberOfLines={1}>$1</Text>"],
     "description": "一个用于显示文本的React组件"
   },
+  "TextInput": {
+    "prefix": "$TextInput",
+    "body": ["<TextInput style={{${3}}} value={${1}} onChangeText={(val)=>{${2}}} />"],
+    "description": "TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。"
+  },
+
+
+
   "View": {
     "prefix": "$View",
     "body": ["<View>$1</View>"],
