@@ -140,7 +140,7 @@
   },
   "TouchableOpacity": {
     "prefix": "$TouchableOpacity",
-    "body": ["<TouchableOpacity onPress={$2}>$1</TouchableOpacity>"],
+    "body": ["<TouchableOpacity onPress={() => {${2}}} activeOpacity={0.8} style={{}} >${1}</TouchableOpacity>"],
     "description": "本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。"
   },
   "Style": {
