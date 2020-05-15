@@ -51,9 +51,11 @@
   },
   "Picker ": {
     "prefix": "$Picker",
-    "body": ["<Picker selectedValue={${1}} onValueChange={(itemValue, itemIndex) => {}>",
-              "\t<Picker.Item label=\"${3}\" value=\"${4}\" />",
-              "</Picker>"],
+    "body": [
+      "<Picker selectedValue={${1}} onValueChange={(itemValue, itemIndex) => {}>",
+      "\t<Picker.Item label=\"${3}\" value=\"${4}\" />",
+      "</Picker>"
+    ],
     "description": "本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。"
   },
   "ProgressBarAndroid": {
@@ -73,21 +75,19 @@
   },
   "SafeAreaView": {
     "prefix": "$SafeAreaView",
-    "body": ["<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>",
-              "\t${1}",
-              "</SafeAreaView>"],
+    "body": ["<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>", "\t${1}", "</SafeAreaView>"],
     "description": "SafeAreaView的目的是在一个“安全”的可视区域内渲染内容。本组件目前仅支持 iOS 设备以及 iOS 11 或更高版本。"
   },
   "ScrollView": {
     "prefix": "$ScrollView",
-    "body": ["<ScrollView contentContainerStyle={{flex:1}}>",
-              "\t${1}",
-              "</ScrollView>"],
+    "body": ["<ScrollView contentContainerStyle={{flex:1}}>", "\t${1}", "</ScrollView>"],
     "description": "一个封装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。"
   },
   "SectionList": {
     "prefix": "$SectionList",
-    "body": ["<SectionList sections={${3}} renderItem={({ item, index, section }) => {${1}}} renderSectionHeader={${2}} keyExtractor={(item, index) => index} />"],
+    "body": [
+      "<SectionList sections={${3}} renderItem={({ item, index, section }) => {${1}}} renderSectionHeader={${2}} keyExtractor={(item, index) => index} />"
+    ],
     "description": "高性能的分组(section)列表组件"
   },
   "SegmentedControlIOS": {
@@ -107,12 +107,7 @@
   },
   "StyleSheet": {
     "prefix": "$StyleSheet",
-    "body": ["const styles = StyleSheet.create({",
-             "\tcontainer: {",
-             "\t\tborderWidth: StyleSheet.hairlineWidth",
-             "\t},",
-             "\t${1}",
-             "});"],
+    "body": ["const styles = StyleSheet.create({", "\tcontainer: {", "\t\tborderWidth: StyleSheet.hairlineWidth", "\t},", "\t${1}", "});"],
     "description": "StyleSheet提供了一种类似CSS样式表的抽象。"
   },
   "Switch": {
@@ -127,20 +122,18 @@
   },
   "TextInput": {
     "prefix": "$TextInput",
-    "body": ["<TextInput style={{${3}}} value={${1}} onChangeText={(val)=>{${2}}} />"],
+    "body": ["<TextInput value={${1}} onChangeText={(val)=>{this.setState({${2}})}} style={{${3}}} />"],
     "description": "TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。"
   },
 
-
-
   "View": {
     "prefix": "$View",
-    "body": ["<View>$1</View>"],
+    "body": ["<View>", "\t${1}", "</View>"],
     "description": "View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器"
   },
   "TouchableOpacity": {
     "prefix": "$TouchableOpacity",
-    "body": ["<TouchableOpacity onPress={() => {${2}}} activeOpacity={0.8} style={{}} >${1}</TouchableOpacity>"],
+    "body": ["<TouchableOpacity onPress={() => {${2}}} activeOpacity={0.8} style={{}} >", "\t${1}", "</TouchableOpacity>"],
     "description": "本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。"
   },
   "Style": {
