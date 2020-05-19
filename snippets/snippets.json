@@ -225,12 +225,12 @@
   "Linking": {
     "prefix": "$Linking",
     "body": [
-      "Linking.canOpenURL(${1}).then(supported => {".
-        "\tif (!supported) {",
-          "\t\t${2}",
-        "\t} else {",
-          "\t\treturn Linking.openURL(${1});",
-        "\t}",
+      "Linking.canOpenURL(${1}).then(supported => {",
+      "\tif (!supported) {",
+      "\t\t${2}",
+      "\t} else {",
+      "\t\treturn Linking.openURL(${1});",
+      "\t}",
       "}).catch(err => {${3}});"
     ],
     "description": "Linking提供了一个通用的接口来与传入和传出的 App 链接进行交互。"
@@ -239,85 +239,42 @@
   // React组件
   "componentWillMount": {
     "prefix": "$cwm",
-    "body": [
-      "componentWillMount = () => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentWillMount = () => {", "  $0", "};", ""],
     "description": "Invoked once, both on the client and server, immediately before the initial rendering occurs"
   },
   "componentDidMount": {
     "prefix": "$cdm",
-    "body": [
-      "componentDidMount = () => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentDidMount = () => {", "  $0", "};", ""],
     "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
   },
   "componentWillReceiveProps": {
     "prefix": "$cwr",
-    "body": [
-      "componentWillReceiveProps = (nextProps) => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentWillReceiveProps = (nextProps) => {", "  $0", "};", ""],
     "description": "Invoked when a component is receiving new props. This method is not called for the initial render."
   },
   "shouldComponentUpdate": {
     "prefix": "$scu",
-    "body": [
-      "shouldComponentUpdate = (nextProps, nextState) => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["shouldComponentUpdate = (nextProps, nextState) => {", "  $0", "};", ""],
     "description": "Invoked before rendering when new props or state are being received. "
   },
   "componentWillUpdate": {
     "prefix": "$cwup",
-    "body": [
-      "componentWillUpdate = (nextProps, nextState) => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentWillUpdate = (nextProps, nextState) => {", "  $0", "};", ""],
     "description": "Invoked immediately before rendering when new props or state are being received."
   },
   "componentDidUpdate": {
     "prefix": "$cdup",
-    "body": [
-      "componentDidUpdate = (prevProps, prevState) => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentDidUpdate = (prevProps, prevState) => {", "  $0", "};", ""],
     "description": "Invoked immediately after the component's updates are flushed to the DOM."
   },
   "componentWillUnmount": {
     "prefix": "$cwun",
-    "body": [
-      "componentWillUnmount = () => {",
-      "  $0",
-      "};",
-      ""
-    ],
+    "body": ["componentWillUnmount = () => {", "  $0", "};", ""],
     "description": "Invoked immediately before a component is unmounted from the DOM."
   },
   "componentRender": {
     "prefix": "$render",
-    "body": [
-      "render() {",
-      "  return (",
-      "    <div>",
-      "      $0",
-      "    </div>",
-      "  )",
-      "};"
-    ],
+    "body": ["render() {", "  return (", "    <div>", "      $0", "    </div>", "  )", "};"],
     "description": "Basic render."
   },
   "componentSetStateObject": {
@@ -327,20 +284,11 @@
   },
   "useState": {
     "prefix": "$useState",
-    "body": [
-      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"
-    ]
+    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"]
   },
   "useEffect": {
     "prefix": "$useEffect",
-    "body": [
-      "useEffect(() => {",
-      "\t${1:effect}",
-      "\treturn () => {",
-      "\t\t${2:cleanup}",
-      "\t}",
-      "}, [${3:input}])"
-    ]
+    "body": ["useEffect(() => {", "\t${1:effect}", "\treturn () => {", "\t\t${2:cleanup}", "\t}", "}, [${3:input}])"]
   },
   "useContext": {
     "prefix": "$useContext",
@@ -348,20 +296,11 @@
   },
   "useReducer": {
     "prefix": "$useReducer",
-    "body": [
-      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init})"
-    ]
+    "body": ["const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init})"]
   },
   "useCallback": {
     "prefix": "$useCallback",
-    "body": [
-      "useCallback(",
-      "\t() => {",
-      "\t\t${1:callback}",
-      "\t},",
-      "\t[${2:input}],",
-      ")"
-    ]
+    "body": ["useCallback(", "\t() => {", "\t\t${1:callback}", "\t},", "\t[${2:input}],", ")"]
   },
   "useMemo": {
     "prefix": "$useMemo",
@@ -373,15 +312,7 @@
   },
   "useImperativeHandle": {
     "prefix": "$useImperativeHandle",
-    "body": [
-      "useImperativeHandle(",
-      "\t${1:ref},",
-      "\t() => {",
-      "\t\t${2:handler}",
-      "\t},",
-      "\t[${3:input}],",
-      ")"
-    ]
+    "body": ["useImperativeHandle(", "\t${1:ref},", "\t() => {", "\t\t${2:handler}", "\t},", "\t[${3:input}],", ")"]
   },
   "useDebugValue": {
     "prefix": "$useDebugValue",
@@ -389,26 +320,15 @@
   },
   "useLayoutEffect": {
     "prefix": "$useLayoutEffect",
-    "body": [
-      "useLayoutEffect(() => {",
-      "\t${1:effect}",
-      "\treturn () => {",
-      "\t\t${2:cleanup}",
-      "\t};",
-      "}, [${3:input}])"
-    ]
+    "body": ["useLayoutEffect(() => {", "\t${1:effect}", "\treturn () => {", "\t\t${2:cleanup}", "\t};", "}, [${3:input}])"]
   },
   "useSelector": {
     "prefix": "$useSelector",
-    "body": [
-      "const ${1:state} = useSelector(state => state.${1:state})"
-    ]
+    "body": ["const ${1:state} = useSelector(state => state.${1:state})"]
   },
   "useDispatch": {
     "prefix": "$useDispatch",
-    "body": [
-      "const dispatch = useDispatch(${1:function})"
-    ]
+    "body": ["const dispatch = useDispatch(${1:function})"]
   },
   "Style": {
     "prefix": "$style",
@@ -426,9 +346,7 @@
   },
   "fragment": {
     "prefix": "$fragement",
-    "body": ["<>",
-            "\t${1}",
-            "</>"],
+    "body": ["<>", "\t${1}", "</>"],
     "description": "创建一个Fragment"
   },
   "createRef": {
@@ -549,16 +467,7 @@
   },
   "classConstructor": {
     "prefix": "$constructor",
-    "body": [
-      "constructor(props) {",
-      "  super(props)",
-      "",
-      "  this.state = {",
-      "     $0",
-      "  };",
-      "};",
-      ""
-    ],
+    "body": ["constructor(props) {", "  super(props)", "", "  this.state = {", "     $0", "  };", "};", ""],
     "description": "Adds a default constructor for it('', () => {})the class that contains props as arguments"
   }
 }
