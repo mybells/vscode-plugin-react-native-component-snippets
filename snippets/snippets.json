@@ -366,7 +366,7 @@
     "body": [
       "import React, { Component } from 'react';",
       "",
-      "class ${1:componentName} extends Component {",
+      "class ${1:${TM_FILENAME_BASE}} extends Component {",
       "  constructor(props) {",
       "    super(props);",
       "    this.state = {",
@@ -375,12 +375,12 @@
       "",
       "  render() {",
       "    return (",
-      "      <div> ${2:textInComponent} </div>",
+      "      <div> ${2:${TM_FILENAME_BASE}} </div>",
       "    );",
       "  }",
       "}",
       "",
-      "export default ${1:componentName};",
+      "export default ${1:${TM_FILENAME_BASE}};",
       ""
     ],
     "description": "React Component Export"
@@ -390,7 +390,7 @@
     "body": [
       "import React, { useState, useEffect } from 'react';",
       "",
-      "function ${1:componentName}(props) {",
+      "function ${1:${TM_FILENAME_BASE}}(props) {",
       "  const [state, setstate] = useState(null);",
       "",
       "  useEffect(() => {",
@@ -401,11 +401,11 @@
       "  }, [])",
       "",
       "  return (",
-      "    <div> ${2:textInComponent} </div>",
+      "    <div> ${2:${TM_FILENAME_BASE}} </div>",
       "  );",
       "}",
       "",
-      "export default ${1:componentName};",
+      "export default ${1:${TM_FILENAME_BASE}};",
       ""
     ],
     "description": "React Hooks Component Export"
@@ -443,7 +443,7 @@
       "import React, { useState, useEffect } from 'react';",
       "import { View, Text } from 'react-native';",
       "",
-      "function ${1:componentName}(props) {",
+      "function ${1:${TM_FILENAME_BASE}}(props) {",
       "  const [state, setstate] = useState(null);",
       "",
       "  useEffect(() => {",
@@ -455,12 +455,12 @@
       "",
       "  return (",
       "    <View>",
-      "      <Text> ${2:${componentName}} </Text>",
+      "      <Text> ${2:${TM_FILENAME_BASE}} </Text>",
       "    </View>",
       "  );",
       "}",
       "",
-      "export default ${1:componentName};",
+      "export default ${1:${TM_FILENAME_BASE}};",
       ""
     ],
     "description": "React Native Hooks Component Export"
