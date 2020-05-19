@@ -1,4 +1,6 @@
 {
+  // ==========================================================================================================================
+  // 视图组件
   "ActivityIndicator": {
     "prefix": "$ActivityIndicator",
     "body": ["<ActivityIndicator color=\"${2:#000}\" />"],
@@ -117,7 +119,7 @@
   },
   "Text": {
     "prefix": "$Text",
-    "body": ["<Text style={{${2}}} numberOfLines={1}>$1</Text>"],
+    "body": ["<Text numberOfLines={1}>$1</Text>"],
     "description": "一个用于显示文本的React组件"
   },
   "TextInput": {
@@ -125,20 +127,438 @@
     "body": ["<TextInput value={${1}} onChangeText={(val)=>{this.setState({${2}})}} style={{${3}}} />"],
     "description": "TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。"
   },
-
-  "View": {
-    "prefix": "$View",
-    "body": ["<View>", "\t${1}", "</View>"],
-    "description": "View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器"
+  "TouchableHighlight": {
+    "prefix": "$TouchableHighlight",
+    "body": ["<TouchableHighlight onPress={() => {${2}}} activeOpacity={0.8} style={{}} >", "\t${1}", "</TouchableHighlight>"],
+    "description": "本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低，同时会有一个底层的颜色透过而被用户看到，使得视图变暗或变亮。"
+  },
+  "TouchableNativeFeedback": {
+    "prefix": "$TouchableNativeFeedback",
+    "body": ["<TouchableNativeFeedback onPress={() => {${2}}} >", "\t${1}", "</TouchableNativeFeedback>"],
+    "description": "本组件用于封装视图，使其可以正确响应触摸操作（仅限Android平台）。在Android设备上，这个组件利用原生状态来渲染触摸的反馈。"
   },
   "TouchableOpacity": {
     "prefix": "$TouchableOpacity",
     "body": ["<TouchableOpacity onPress={() => {${2}}} activeOpacity={0.8} style={{}} >", "\t${1}", "</TouchableOpacity>"],
     "description": "本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。"
   },
+  "TouchableWithoutFeedback": {
+    "prefix": "$TouchableWithoutFeedback",
+    "body": ["<TouchableWithoutFeedback onPress={() => {${2}}} >", "\t${1}", "</TouchableWithoutFeedback>"],
+    "description": "除非你有一个很好的理由，否则不要用这个组件。所有能够响应触屏操作的元素在触屏后都应该有一个视觉上的反馈（然而本组件没有任何视觉反馈）。"
+  },
+  "View": {
+    "prefix": "$View",
+    "body": ["<View>", "\t${1}", "</View>"],
+    "description": "View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器"
+  },
+  "ViewPagerAndroid": {
+    "prefix": "$ViewPagerAndroid",
+    "body": ["<ViewPagerAndroid initialPage={0} onPageSelected={() => {${2}}} >", "\t${1}", "</ViewPagerAndroid>"],
+    "description": "一个允许在子视图之间左右翻页的容器。每一个 ViewPagerAndroid 的子容器会被视作一个单独的页，并且会被拉伸填满 ViewPagerAndroid。"
+  },
+  "VirtualizedList": {
+    "prefix": "$VirtualizedList",
+    "body": ["<VirtualizedList data={${1}} renderItem={({item,index}) => {${2}}} keyExtractor={(item, index) => index} />"],
+    "description": "FlatList和SectionList的底层实现。"
+  },
+  "WebView": {
+    "prefix": "$WebView",
+    "body": ["<WebView source={{html:${1}}} style={{${2}}} />"],
+    "description": "WebView 创建一个原生的 WebView，可以用于访问一个网页。"
+  },
+  // ==========================================================================================================================
+  // API组件
+  "Alert": {
+    "prefix": "$Alert",
+    "body": [
+      "Alert.alert(",
+      "\t${1|title}",
+      "\t${2|msg}",
+      "\t[{text: '取消', onPress: () => {}, style: 'cancel'}",
+      "\t{text: '确定', onPress: () => {}}]",
+      "\t{ cancelable: false }",
+      ")"
+    ],
+    "description": "启动一个提示对话框，包含对应的标题和信息。"
+  },
+  "Animated": {
+    "prefix": "$Animated",
+    "body": ["Animated.timing(", "\t${1}", "\t{ toValue: 1 }", ").start()"],
+    "description": "Animated库旨在使动画变得流畅，强大并易于构建和维护。"
+  },
+  "BackHandler": {
+    "prefix": "$BackHandler",
+    "body": ["BackHandler.addEventListener('hardwareBackPress', ${1|this.handleBackPress});"],
+    "description": "监听设备上的后退按钮事件。"
+  },
+  "AsyncStorageGet": {
+    "prefix": "$AsyncStorageGet",
+    "body": ["AsyncStorage.getItem(${1},(error,res)=>{${2}});"],
+    "description": "AsyncStorage是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。"
+  },
+  "AsyncStorageSet": {
+    "prefix": "$AsyncStorageSet",
+    "body": ["AsyncStorage.setItem(${1});"],
+    "description": "AsyncStorage是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。"
+  },
+  "AsyncStorageRemove": {
+    "prefix": "$AsyncStorageRemove",
+    "body": ["AsyncStorage.removeItem(${1});"],
+    "description": "AsyncStorage是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。"
+  },
+  "ClipboardGet": {
+    "prefix": "$ClipboardGet",
+    "body": ["Clipboard.getString();"],
+    "description": "Clipboard组件可以在 iOS 和 Android 的剪贴板中读写内容。"
+  },
+  "ClipboardSet": {
+    "prefix": "$ClipboardSet",
+    "body": ["Clipboard.setString(${1});"],
+    "description": "Clipboard组件可以在 iOS 和 Android 的剪贴板中读写内容。"
+  },
+  "Dimensions": {
+    "prefix": "$Dimensions",
+    "body": ["const { width, height } = Dimensions.get('window');"],
+    "description": "本模块用于获取设备屏幕的宽高。"
+  },
+  "Linking": {
+    "prefix": "$Linking",
+    "body": [
+      "Linking.canOpenURL(${1}).then(supported => {".
+        "\tif (!supported) {",
+          "\t\t${2}",
+        "\t} else {",
+          "\t\treturn Linking.openURL(${1});",
+        "\t}",
+      "}).catch(err => {${3}});"
+    ],
+    "description": "Linking提供了一个通用的接口来与传入和传出的 App 链接进行交互。"
+  },
+  // ==========================================================================================================================
+  // React组件
+  "componentWillMount": {
+    "prefix": "$cwm",
+    "body": [
+      "componentWillMount = () => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked once, both on the client and server, immediately before the initial rendering occurs"
+  },
+  "componentDidMount": {
+    "prefix": "$cdm",
+    "body": [
+      "componentDidMount = () => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
+  },
+  "componentWillReceiveProps": {
+    "prefix": "$cwr",
+    "body": [
+      "componentWillReceiveProps = (nextProps) => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked when a component is receiving new props. This method is not called for the initial render."
+  },
+  "shouldComponentUpdate": {
+    "prefix": "$scu",
+    "body": [
+      "shouldComponentUpdate = (nextProps, nextState) => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked before rendering when new props or state are being received. "
+  },
+  "componentWillUpdate": {
+    "prefix": "$cwup",
+    "body": [
+      "componentWillUpdate = (nextProps, nextState) => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked immediately before rendering when new props or state are being received."
+  },
+  "componentDidUpdate": {
+    "prefix": "$cdup",
+    "body": [
+      "componentDidUpdate = (prevProps, prevState) => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked immediately after the component's updates are flushed to the DOM."
+  },
+  "componentWillUnmount": {
+    "prefix": "$cwun",
+    "body": [
+      "componentWillUnmount = () => {",
+      "  $0",
+      "};",
+      ""
+    ],
+    "description": "Invoked immediately before a component is unmounted from the DOM."
+  },
+  "componentRender": {
+    "prefix": "$render",
+    "body": [
+      "render() {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  )",
+      "};"
+    ],
+    "description": "Basic render."
+  },
+  "componentSetStateObject": {
+    "prefix": "$setState",
+    "body": "this.setState({$0})",
+    "description": "Performs a shallow merge of nextState into current state"
+  },
+  "useState": {
+    "prefix": "$useState",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"
+    ]
+  },
+  "useEffect": {
+    "prefix": "$useEffect",
+    "body": [
+      "useEffect(() => {",
+      "\t${1:effect}",
+      "\treturn () => {",
+      "\t\t${2:cleanup}",
+      "\t}",
+      "}, [${3:input}])"
+    ]
+  },
+  "useContext": {
+    "prefix": "$useContext",
+    "body": ["const ${1:context} = useContext(${2:contextValue})"]
+  },
+  "useReducer": {
+    "prefix": "$useReducer",
+    "body": [
+      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init})"
+    ]
+  },
+  "useCallback": {
+    "prefix": "$useCallback",
+    "body": [
+      "useCallback(",
+      "\t() => {",
+      "\t\t${1:callback}",
+      "\t},",
+      "\t[${2:input}],",
+      ")"
+    ]
+  },
+  "useMemo": {
+    "prefix": "$useMemo",
+    "body": ["useMemo(() => ${1:function}, ${2:input})"]
+  },
+  "useRef": {
+    "prefix": "$useRef",
+    "body": ["const ${1:ref} = useRef(${2:initialValue})"]
+  },
+  "useImperativeHandle": {
+    "prefix": "$useImperativeHandle",
+    "body": [
+      "useImperativeHandle(",
+      "\t${1:ref},",
+      "\t() => {",
+      "\t\t${2:handler}",
+      "\t},",
+      "\t[${3:input}],",
+      ")"
+    ]
+  },
+  "useDebugValue": {
+    "prefix": "$useDebugValue",
+    "body": ["useDebugValue(${1:value})"]
+  },
+  "useLayoutEffect": {
+    "prefix": "$useLayoutEffect",
+    "body": [
+      "useLayoutEffect(() => {",
+      "\t${1:effect}",
+      "\treturn () => {",
+      "\t\t${2:cleanup}",
+      "\t};",
+      "}, [${3:input}])"
+    ]
+  },
+  "useSelector": {
+    "prefix": "$useSelector",
+    "body": [
+      "const ${1:state} = useSelector(state => state.${1:state})"
+    ]
+  },
+  "useDispatch": {
+    "prefix": "$useDispatch",
+    "body": [
+      "const dispatch = useDispatch(${1:function})"
+    ]
+  },
   "Style": {
-    "prefix": "$Style",
+    "prefix": "$style",
     "body": ["style={{${1}}}"],
     "description": "样式变量"
+  },
+  "import": {
+    "prefix": "$import",
+    "body": "import ${2:moduleName} from '${1:module}';$0"
+  },
+  "consoleLog": {
+    "prefix": "$clg",
+    "body": "console.log(${1:object})",
+    "description": "Displays a message in the console"
+  },
+  "fragment": {
+    "prefix": "$fragement",
+    "body": ["<>",
+            "\t${1}",
+            "</>"],
+    "description": "创建一个Fragment"
+  },
+  "createRef": {
+    "prefix": "$createRef",
+    "body": "this.ref = React.createRef();",
+    "description": "创建一个createRef"
+  },
+  "createPortal": {
+    "prefix": "$createPortal",
+    "body": "ReactDOM.createPortal(${1|child}, ${2|container});",
+    "description": "创建一个createRef"
+  },
+  // ==========================================================================================================================
+  // 架构组件
+  "reactComponentExport": {
+    "prefix": "$reactclass",
+    "body": [
+      "import React, { Component } from 'react';",
+      "",
+      "class ${1:componentName} extends Component {",
+      "  constructor(props) {",
+      "    super(props);",
+      "    this.state = {",
+      "    };",
+      "  }",
+      "",
+      "  render() {",
+      "    return (",
+      "      <div> ${2:textInComponent} </div>",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "export default ${1:componentName};",
+      ""
+    ],
+    "description": "React Component Export"
+  },
+  "reactHookExport": {
+    "prefix": "$reacthook",
+    "body": [
+      "import React, { useState, useEffect } from 'react';",
+      "",
+      "function ${1:componentName}(props) {",
+      "  const [state, setstate] = useState(null);",
+      "",
+      "  useEffect(() => {",
+      "",
+      "    return () => {",
+      "",
+      "    }",
+      "  }, [])",
+      "",
+      "  return (",
+      "    <div> ${2:textInComponent} </div>",
+      "  );",
+      "}",
+      "",
+      "export default ${1:componentName};",
+      ""
+    ],
+    "description": "React Hooks Component Export"
+  },
+  "reactNativeComponentExport": {
+    "prefix": "$rnclass",
+    "body": [
+      "import React, { Component } from 'react';",
+      "import { View, Text } from 'react-native';",
+      "",
+      "class ${1:${TM_FILENAME_BASE}} extends Component {",
+      "  constructor(props) {",
+      "    super(props);",
+      "    this.state = {",
+      "    };",
+      "  }",
+      "",
+      "  render() {",
+      "    return (",
+      "      <View>",
+      "        <Text> ${2:${TM_FILENAME_BASE}} </Text>",
+      "      </View>",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};",
+      ""
+    ],
+    "description": "React Native Component Export"
+  },
+  "reactNativeHookExport": {
+    "prefix": "$rnhook",
+    "body": [
+      "import React, { useState, useEffect } from 'react';",
+      "import { View, Text } from 'react-native';",
+      "",
+      "function ${1:componentName}(props) {",
+      "  const [state, setstate] = useState(null);",
+      "",
+      "  useEffect(() => {",
+      "",
+      "    return () => {",
+      "",
+      "    }",
+      "  }, [])",
+      "",
+      "  return (",
+      "    <View>",
+      "      <Text> ${2:${componentName}} </Text>",
+      "    </View>",
+      "  );",
+      "}",
+      "",
+      "export default ${1:componentName};",
+      ""
+    ],
+    "description": "React Native Hooks Component Export"
+  },
+  "classConstructor": {
+    "prefix": "$constructor",
+    "body": [
+      "constructor(props) {",
+      "  super(props)",
+      "",
+      "  this.state = {",
+      "     $0",
+      "  };",
+      "};",
+      ""
+    ],
+    "description": "Adds a default constructor for it('', () => {})the class that contains props as arguments"
   }
 }

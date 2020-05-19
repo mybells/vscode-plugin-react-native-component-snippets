@@ -1,9 +1,10 @@
 {
   "name": "vscode-plugin-react-native-component-snippets",
   "displayName": "React Native Component Snippets",
-  "description": "react-native内置组件标签自动补全vscode插件",
+  "description": "react-native内置组件标签及常用react代码自动补全vscode插件",
   "publisher": "mybells",
   "keywords": [
+    "react",
     "react-native",
     "snippets"
   ],
@@ -22,7 +23,7 @@
   },
   "main": "./out/extension",
   "activationEvents": [
-    "onLanguage:vuejs"
+    "onLanguage:js"
   ],
   "contributes": {
     "snippets": [
