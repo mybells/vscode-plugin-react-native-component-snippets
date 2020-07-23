@@ -82,9 +82,6 @@ react-native内置组件标签、API代码自动补全。react文件Class结构�
 |   `$useLayoutEffect`   | `useLayoutEffect(()=>{},[])`                          |
 |     `$useSelector`     | `const state = useSelector(state =>{})`               |
 |     `$useDispatch`     | `const dispatch = useDispatch()`                      |
-|     `$useDispatch`     | `const dispatch = useDispatch()`                      |
-|     `$useDispatch`     | `const dispatch = useDispatch()`                      |
-|     `$useDispatch`     | `const dispatch = useDispatch()`                      |
 |     `$constructor`     | `react的constructor`                                  |
 |      `$fragment`       | `<></>`                                               |
 |      `$createRef`      | `this.ref = React.createRef()`                        |

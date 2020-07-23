@@ -48,7 +48,7 @@
   },
   "Modal": {
     "prefix": "$Modal",
-    "body": ["<Modal visible={${1}} onRequestClose={() => {${2}}} />"],
+    "body": ["<Modal visible={${1}} transparent={${2|true}}>${3}</Modal>"],
     "description": "Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。"
   },
   "Picker ": {
